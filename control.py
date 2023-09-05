@@ -51,7 +51,7 @@ class control():
         if self.connection_list:
             for i, conn in enumerate(self.connection_list):
                 try:
-                    self.connection_list[i].send(str.encode('exit'))
+                    self.connection_list[i].send(str.encode('exit<EOM488965>'))
                     print("Connection closed with: {}:{}".format(self.get_client_ip_port(conn)[0], self.get_client_ip_port(conn)[1]))
                     conn.close()           
                 except Exception as err:
@@ -68,13 +68,24 @@ class control():
             if self.connection_list:
                 for i, conn in enumerate(self.connection_list):
                     try:
-                        self.connection_list[i].send(str.encode(' '))
-                        self.connection_list[i].recv(20480)
-                    except:
+                        self.connection_list[i].send(str.encode('alive<EOM488965>'))
+                        recv_data = self.receive_from_session(i)
+                        #self.connection_list[i].recv(20480)
+                    except Exception as err:
+                        print(err)
                         print("\nConnection closed: {}".format(self.address_list[i][0]))
                         del self.connection_list[i]
                         del self.address_list[i]
     
+    def receive_from_session(self, session_id):
+        data = ""
+        while True:
+            chunk = self.connection_list[session_id].recv(1024).decode("utf-8")
+            data += chunk
+            if "<EOM488965>" in data:
+                break
+        return data.replace("<EOM488965>", "")
+
     def interact_with_session(self, session_id):
         print("Connected to client: " + self.address_list[session_id][0])
         while True:
@@ -85,9 +96,11 @@ class control():
                 elif cmd == 'exit':
                     break
                 elif cmd == 'uptime':
-                    self.connection_list[session_id].send(str.encode(cmd))
-                    recv_data = self.connection_list[session_id].recv(1024)
-                    print(str(recv_data.decode("utf-8")))
+                    self.connection_list[session_id].send(str.encode(cmd + "<EOM488965>"))
+                    recv_data = self.receive_from_session(session_id)
+                    print(recv_data)
+                else:
+                    print("Command not recognised.")
             except Exception as err:
                 logging.error("Error sending commend: " + str(err))
                 break
