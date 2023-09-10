@@ -17,6 +17,7 @@ class control():
         self.address_list.append(address)
 
     def menu(self):
+        print("\nWelcome to the Main Menu. Type 'help' to see available commands.\n")
         while True:
             cmd = input('Main Menu: ')
             if cmd == 'help':
@@ -34,7 +35,7 @@ class control():
                         print("Attempting to interact with session: {}".format(session_id))
                         self.interact_with_session(session_id) 
                     else:
-                        raise ValueError("Invalid session index. Please provide a valid session.")
+                        print("Invalid session index. Please provide a valid session.")
                 except ValueError:
                     print("Invalid session index. Please provide a valid session.")       
             else:
@@ -70,7 +71,8 @@ class control():
                     try:
                         self.connection_list[i].send(str.encode('alive<EOM488965>'))
                         recv_data = self.receive_from_session(i)
-                        #self.connection_list[i].recv(20480)
+                        if not recv_data:
+                            raise Exception()
                     except Exception as err:
                         print(err)
                         print("\nConnection closed: {}".format(self.address_list[i][0]))
@@ -81,6 +83,8 @@ class control():
         data = ""
         while True:
             chunk = self.connection_list[session_id].recv(1024).decode("utf-8")
+            if chunk == "":
+                return False
             data += chunk
             if "<EOM488965>" in data:
                 break

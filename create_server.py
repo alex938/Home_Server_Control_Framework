@@ -24,30 +24,30 @@ class server():
         return ip
 
     def create_socket(self):
-        print("Attempting to create socket")
+        print("1. Attempting to create socket")
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=socket.IPPROTO_TCP)
-            print("Socket created sucessfully")
+            print("[+] Socket created sucessfully")
         except socket.error as err:
             logging.error("Error creating socket: " + str(err))
         finally:
             pass
 
     def bind_socket(self):
-        print("Attempting to bind socket")
+        print("2. Attempting to bind socket")
         try:
             self.socket.bind((self.ip, self.port))
-            print("IP/PORT bound successfully")    
+            print("[+] IP/PORT bound successfully")    
         except socket.error as err:
             logging.error("Error binding: " + str(err))
         finally:
             pass
 
     def start_listening(self):
-        print("Attempting to listen for connections")
+        print("3. Attempting to listen for connections")
         try:
             self.socket.listen(5)
-            print("Listening for connections on {}:{}".format(str(self.socket.getsockname()[0]), str(self.socket.getsockname()[1])))    
+            print("[+] Listening for connections on {}:{}".format(str(self.socket.getsockname()[0]), str(self.socket.getsockname()[1])))    
         except socket.error as err:
             logging.error("Error listening: " + str(err))
         finally:
@@ -57,7 +57,7 @@ class server():
         try:
             while True:
                 conn, address = self.socket.accept()
-                print("\nConnection established from: {}:{}".format(str(address[0]), str(address[1])))
+                print("\n[+] Connection established from: {}:{}".format(str(address[0]), str(address[1])))
                 self.control.add_connection(conn, address)
         except socket.error as err:
             logging.error("Error: " + str(err))
