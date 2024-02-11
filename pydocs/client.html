@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module client</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">client</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/student/Desktop/IR-TOOL/client.py">/home/student/Desktop/IR-TOOL/client.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+<a href="shutil.html">shutil</a><br>
+</td><td class="multicolumn"><a href="socket.html">socket</a><br>
+<a href="ssl.html">ssl</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="client.html#Client">Client</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Client">class <strong>Client</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Client">Client</a>&nbsp;class&nbsp;for&nbsp;interacting&nbsp;with&nbsp;the&nbsp;server<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_server_ip&nbsp;(str):&nbsp;The&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;server&nbsp;to&nbsp;connect&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_server_port&nbsp;(str):&nbsp;The&nbsp;port&nbsp;of&nbsp;the&nbsp;server&nbsp;to&nbsp;connect&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_socket&nbsp;(socket):&nbsp;The&nbsp;socket&nbsp;used&nbsp;for&nbsp;communication<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Client-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialises&nbsp;a&nbsp;new&nbsp;client&nbsp;instance</span></dd></dl>
+
+<dl><dt><a name="Client-connect_to_server"><strong>connect_to_server</strong></a>(self) -&gt; None</dt><dd><span class="code">Connect&nbsp;to&nbsp;the&nbsp;server</span></dd></dl>
+
+<dl><dt><a name="Client-create_client_socket"><strong>create_client_socket</strong></a>(self) -&gt; None</dt><dd><span class="code">Create&nbsp;a&nbsp;client&nbsp;socket</span></dd></dl>
+
+<dl><dt><a name="Client-get_disk_info"><strong>get_disk_info</strong></a>(self) -&gt; str</dt><dd><span class="code">Gets&nbsp;disk&nbsp;information<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;Disk&nbsp;useage&nbsp;and&nbsp;capacity&nbsp;as&nbsp;a&nbsp;joined&nbsp;string</span></dd></dl>
+
+<dl><dt><a name="Client-get_ip_port_of_server_from_user"><strong>get_ip_port_of_server_from_user</strong></a>(self) -&gt; None</dt><dd><span class="code">Prompt&nbsp;the&nbsp;user&nbsp;enter&nbsp;the&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;server&nbsp;to&nbsp;connect&nbsp;to</span></dd></dl>
+
+<dl><dt><a name="Client-get_os_info"><strong>get_os_info</strong></a>(self) -&gt; str</dt><dd><span class="code">Gets&nbsp;OS&nbsp;information<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;OS&nbsp;information&nbsp;as&nbsp;a&nbsp;joined&nbsp;string</span></dd></dl>
+
+<dl><dt><a name="Client-ready_to_receive"><strong>ready_to_receive</strong></a>(self)</dt><dd><span class="code">This&nbsp;is&nbsp;the&nbsp;main&nbsp;loop&nbsp;to&nbsp;recieve&nbsp;and&nbsp;process&nbsp;server&nbsp;commands</span></dd></dl>
+
+<dl><dt><a name="Client-receive_data"><strong>receive_data</strong></a>(self, stream) -&gt; str</dt><dd><span class="code">Used&nbsp;to&nbsp;receive&nbsp;data&nbsp;from&nbsp;the&nbsp;server&nbsp;and&nbsp;strip&nbsp;the&nbsp;EOM&nbsp;delimiter.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stream&nbsp;(socket):&nbsp;The&nbsp;socket&nbsp;stream&nbsp;to&nbsp;receive&nbsp;data&nbsp;from<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;received,&nbsp;decoded&nbsp;data.</span></dd></dl>
+
+<dl><dt><a name="Client-wrap_socket_tls"><strong>wrap_socket_tls</strong></a>(self) -&gt; None</dt><dd><span class="code">Wrap&nbsp;the&nbsp;client&nbsp;socket&nbsp;with&nbsp;TLS</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Client-get_cpu_info"><strong>get_cpu_info</strong></a>() -&gt; str</dt><dd><span class="code">Gets&nbsp;the&nbsp;CPU&nbsp;information<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;CPU&nbsp;information&nbsp;as&nbsp;a&nbsp;joined&nbsp;string</span></dd></dl>
+
+<dl><dt><a name="Client-get_memory_info"><strong>get_memory_info</strong></a>() -&gt; str</dt><dd><span class="code">Gets&nbsp;the&nbsp;memory&nbsp;information<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;Memory&nbsp;information&nbsp;as&nbsp;a&nbsp;join&nbsp;string</span></dd></dl>
+
+<dl><dt><a name="Client-get_running_processes"><strong>get_running_processes</strong></a>() -&gt; list</dt><dd><span class="code">Gets&nbsp;a&nbsp;list&nbsp;of&nbsp;running&nbsp;processes&nbsp;via&nbsp;proc&nbsp;directories<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;A&nbsp;list&nbsp;of&nbsp;running&nbsp;processes</span></dd></dl>
+
+<dl><dt><a name="Client-validate_ip_port"><strong>validate_ip_port</strong></a>(ip, port) -&gt; bool</dt><dd><span class="code">Validate&nbsp;the&nbsp;IP&nbsp;address&nbsp;and&nbsp;port&nbsp;entered<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ip&nbsp;(str):&nbsp;The&nbsp;IP&nbsp;address&nbsp;that&nbsp;needs&nbsp;validating<br>
+&nbsp;&nbsp;&nbsp;&nbsp;port&nbsp;(str):&nbsp;The&nbsp;port&nbsp;number&nbsp;that&nbsp;needs&nbsp;validating<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;both&nbsp;the&nbsp;IP&nbsp;address&nbsp;and&nbsp;port&nbsp;are&nbsp;valid,&nbsp;else&nbsp;returns&nbsp;False</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">The&nbsp;main&nbsp;entry&nbsp;point&nbsp;for&nbsp;the&nbsp;client&nbsp;that&nbsp;instantiates&nbsp;the&nbsp;<a href="#Client">Client</a>&nbsp;class.</span></dd></dl>
+</td></tr></table>
+</body></html>

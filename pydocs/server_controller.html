@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module server_controller</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">server_controller</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/student/Desktop/IR-TOOL/server_controller.py">/home/student/Desktop/IR-TOOL/server_controller.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="datetime.html">datetime</a><br>
+<a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="socket.html">socket</a><br>
+<a href="ssl.html">ssl</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+<a href="threading.html">threading</a><br>
+</td><td class="multicolumn"><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="server_controller.html#SetupController">SetupController</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="server_controller.html#CreateController">CreateController</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CreateController">class <strong>CreateController</strong></a>(<a href="server_controller.html#SetupController">SetupController</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CreateController">CreateController</a>(server_logger,&nbsp;auth_logger,&nbsp;file_manager)<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="server_controller.html#CreateController">CreateController</a></dd>
+<dd><a href="server_controller.html#SetupController">SetupController</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="CreateController-__init__"><strong>__init__</strong></a>(self, server_logger, auth_logger, file_manager)</dt><dd><span class="code">Initialises&nbsp;the&nbsp;<a href="#CreateController">CreateController</a>&nbsp;class&nbsp;with&nbsp;the&nbsp;provided&nbsp;loggers&nbsp;and&nbsp;file&nbsp;manager.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;server_logger&nbsp;(Logger):&nbsp;The&nbsp;logger&nbsp;for&nbsp;server-related&nbsp;logs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auth_logger&nbsp;(Logger):&nbsp;The&nbsp;logger&nbsp;for&nbsp;authentication-related&nbsp;logs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_manager&nbsp;(FileManager):&nbsp;The&nbsp;file&nbsp;manager&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="CreateController-action_input"><strong>action_input</strong></a>(self, cmd)</dt><dd><span class="code">Performs&nbsp;an&nbsp;action&nbsp;based&nbsp;on&nbsp;the&nbsp;user&nbsp;input.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cmd&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;command.</span></dd></dl>
+
+<dl><dt><a name="CreateController-action_validated_client_command"><strong>action_validated_client_command</strong></a>(self, cmd, client_id)</dt><dd><span class="code">Perform&nbsp;different&nbsp;actions&nbsp;based&nbsp;on&nbsp;the&nbsp;user&nbsp;input&nbsp;command&nbsp;for&nbsp;a&nbsp;specific&nbsp;client.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cmd&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;command.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(int):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client.</span></dd></dl>
+
+<dl><dt><a name="CreateController-add_authorised_connection_to_controller"><strong>add_authorised_connection_to_controller</strong></a>(self, conn, address)</dt><dd><span class="code">Adds&nbsp;an&nbsp;authorised&nbsp;connection&nbsp;to&nbsp;the&nbsp;controller.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;conn:&nbsp;The&nbsp;connection&nbsp;object&nbsp;representing&nbsp;the&nbsp;client&nbsp;connection.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;address:&nbsp;The&nbsp;address&nbsp;of&nbsp;the&nbsp;client.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception:&nbsp;If&nbsp;there&nbsp;is&nbsp;an&nbsp;error&nbsp;adding&nbsp;the&nbsp;client&nbsp;to&nbsp;the&nbsp;controller.</span></dd></dl>
+
+<dl><dt><a name="CreateController-authorise_client"><strong>authorise_client</strong></a>(self, conn, address)</dt><dd><span class="code">Checks&nbsp;if&nbsp;the&nbsp;client's&nbsp;IP&nbsp;address&nbsp;is&nbsp;authorized&nbsp;and&nbsp;adds&nbsp;the&nbsp;connection&nbsp;to&nbsp;the&nbsp;controller&nbsp;if&nbsp;it&nbsp;is,<br>
+otherwise&nbsp;logs&nbsp;the&nbsp;rejection.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;conn:&nbsp;The&nbsp;connection&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;address:&nbsp;The&nbsp;IP&nbsp;address&nbsp;and&nbsp;port&nbsp;of&nbsp;the&nbsp;client.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception:&nbsp;If&nbsp;there&nbsp;is&nbsp;an&nbsp;error&nbsp;authorising&nbsp;the&nbsp;client.</span></dd></dl>
+
+<dl><dt><a name="CreateController-break_control_client_loop"><strong>break_control_client_loop</strong></a>(self)</dt><dd><span class="code">A&nbsp;function&nbsp;to&nbsp;turn&nbsp;the&nbsp;break&nbsp;client&nbsp;control&nbsp;loop&nbsp;variable&nbsp;to&nbsp;True.&nbsp;This&nbsp;is&nbsp;checked&nbsp;in&nbsp;the&nbsp;while&nbsp;loop<br>
+of&nbsp;the&nbsp;client&nbsp;control&nbsp;command&nbsp;menu.</span></dd></dl>
+
+<dl><dt><a name="CreateController-check_clients_are_alive"><strong>check_clients_are_alive</strong></a>(self)</dt><dd><span class="code">Periodically&nbsp;checks&nbsp;if&nbsp;the&nbsp;connected&nbsp;clients&nbsp;are&nbsp;still&nbsp;alive.</span></dd></dl>
+
+<dl><dt><a name="CreateController-check_download_path_exists"><strong>check_download_path_exists</strong></a>(self, client_id, file_path_to_download)</dt><dd><span class="code">Check&nbsp;with&nbsp;the&nbsp;client&nbsp;that&nbsp;the&nbsp;requested&nbsp;file&nbsp;exists&nbsp;on&nbsp;the&nbsp;client.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;send.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_path_to_download&nbsp;(str):&nbsp;The&nbsp;full&nbsp;file&nbsp;path&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;get&nbsp;from&nbsp;the&nbsp;client.</span></dd></dl>
+
+<dl><dt><a name="CreateController-check_file_id_exists"><strong>check_file_id_exists</strong></a>(self, file_id)</dt><dd><span class="code">Checks&nbsp;if&nbsp;the&nbsp;user&nbsp;input&nbsp;a&nbsp;correct&nbsp;file&nbsp;ID.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;send.</span></dd></dl>
+
+<dl><dt><a name="CreateController-control_client"><strong>control_client</strong></a>(self, client_id)</dt><dd><span class="code">Control&nbsp;the&nbsp;client&nbsp;with&nbsp;the&nbsp;given&nbsp;ID.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;client&nbsp;ID.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception:&nbsp;Used&nbsp;to&nbsp;catch&nbsp;a&nbsp;scenario&nbsp;in&nbsp;which&nbsp;a&nbsp;client&nbsp;disconnects&nbsp;while&nbsp;the&nbsp;user&nbsp;is&nbsp;on&nbsp;the&nbsp;client<br>
+&nbsp;&nbsp;&nbsp;&nbsp;command&nbsp;menu.&nbsp;Alerts&nbsp;the&nbsp;user&nbsp;and&nbsp;clears&nbsp;the&nbsp;screen,&nbsp;breaks&nbsp;the&nbsp;loop&nbsp;and&nbsp;returns&nbsp;back&nbsp;to&nbsp;the&nbsp;main&nbsp;menu.</span></dd></dl>
+
+<dl><dt><a name="CreateController-did_user_enter_a_client_id"><strong>did_user_enter_a_client_id</strong></a>(self, user_input)</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;client&nbsp;ID&nbsp;was&nbsp;entered.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user_input&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;string.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;a&nbsp;client&nbsp;ID&nbsp;was&nbsp;entered,&nbsp;False&nbsp;otherwise.</span></dd></dl>
+
+<dl><dt><a name="CreateController-display_controller_statistics"><strong>display_controller_statistics</strong></a>(self)</dt><dd><span class="code">Displays&nbsp;the&nbsp;controller&nbsp;statistics.</span></dd></dl>
+
+<dl><dt><a name="CreateController-display_files_available_to_send"><strong>display_files_available_to_send</strong></a>(self, client_id)</dt><dd><span class="code">Checks&nbsp;there&nbsp;are&nbsp;files&nbsp;in&nbsp;the&nbsp;'tool_box'&nbsp;folder&nbsp;and&nbsp;prints&nbsp;to&nbsp;the&nbsp;screen.&nbsp;If&nbsp;not,&nbsp;tells&nbsp;the&nbsp;user&nbsp;no<br>
+files&nbsp;are&nbsp;available&nbsp;i.e.&nbsp;no&nbsp;files&nbsp;in&nbsp;the&nbsp;'tool_box'&nbsp;folder.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(int):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client.</span></dd></dl>
+
+<dl><dt><a name="CreateController-display_help"><strong>display_help</strong></a>(self)</dt><dd><span class="code">Displays&nbsp;the&nbsp;available&nbsp;commands&nbsp;and&nbsp;their&nbsp;descriptions.</span></dd></dl>
+
+<dl><dt><a name="CreateController-display_help_client_menu"><strong>display_help_client_menu</strong></a>(self)</dt><dd><span class="code">Used&nbsp;to&nbsp;display&nbsp;the&nbsp;help&nbsp;of&nbsp;the&nbsp;client&nbsp;control&nbsp;menu&nbsp;printing&nbsp;available&nbsp;commands&nbsp;to&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<dl><dt><a name="CreateController-display_menu"><strong>display_menu</strong></a>(self)</dt><dd><span class="code">Displays&nbsp;the&nbsp;menu&nbsp;and&nbsp;prompts&nbsp;for&nbsp;user&nbsp;input.</span></dd></dl>
+
+<dl><dt><a name="CreateController-get_client_disk_info"><strong>get_client_disk_info</strong></a>(self, client_id)</dt><dd><span class="code">Builds&nbsp;disk&nbsp;message&nbsp;to&nbsp;send&nbsp;to&nbsp;client&nbsp;and&nbsp;begins&nbsp;the&nbsp;receive&nbsp;functions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;disk&nbsp;information&nbsp;is&nbsp;requested.</span></dd></dl>
+
+<dl><dt><a name="CreateController-get_client_processes"><strong>get_client_processes</strong></a>(self, client_id)</dt><dd><span class="code">Builds&nbsp;process&nbsp;message&nbsp;to&nbsp;send&nbsp;to&nbsp;client&nbsp;and&nbsp;begins&nbsp;the&nbsp;receive&nbsp;functions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;process&nbsp;information&nbsp;is&nbsp;requested.</span></dd></dl>
+
+<dl><dt><a name="CreateController-get_client_sysinfo"><strong>get_client_sysinfo</strong></a>(self, client_id)</dt><dd><span class="code">Builds&nbsp;sysinfo&nbsp;message&nbsp;to&nbsp;send&nbsp;to&nbsp;client&nbsp;and&nbsp;begins&nbsp;the&nbsp;receive&nbsp;functions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;sysinfo&nbsp;information&nbsp;is&nbsp;requested.</span></dd></dl>
+
+<dl><dt><a name="CreateController-get_dir_listing"><strong>get_dir_listing</strong></a>(self, client_id, dir_to_list)</dt><dd><span class="code">Builds&nbsp;listdir&nbsp;message&nbsp;to&nbsp;send&nbsp;to&nbsp;client&nbsp;and&nbsp;begins&nbsp;the&nbsp;receive&nbsp;functions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;disk&nbsp;information&nbsp;is&nbsp;requested.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dir_to_list&nbsp;(str):&nbsp;The&nbsp;directory&nbsp;to&nbsp;list.</span></dd></dl>
+
+<dl><dt><a name="CreateController-get_dir_to_list"><strong>get_dir_to_list</strong></a>(self, client_id)</dt><dd><span class="code">Requests&nbsp;user&nbsp;to&nbsp;enter&nbsp;directory&nbsp;to&nbsp;list&nbsp;or&nbsp;breaks&nbsp;loop&nbsp;on&nbsp;the&nbsp;exit&nbsp;command.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;disk&nbsp;information&nbsp;is&nbsp;requested.</span></dd></dl>
+
+<dl><dt><a name="CreateController-get_entered_client_id"><strong>get_entered_client_id</strong></a>(self, user_input)</dt><dd><span class="code">Get&nbsp;the&nbsp;entered&nbsp;client&nbsp;ID&nbsp;from&nbsp;user&nbsp;input.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user_input&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;string.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int:&nbsp;The&nbsp;entered&nbsp;client&nbsp;ID,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;client&nbsp;ID&nbsp;was&nbsp;entered.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError&nbsp;except:&nbsp;Catches&nbsp;a&nbsp;non-int&nbsp;entry,&nbsp;returns&nbsp;the&nbsp;user&nbsp;back&nbsp;to&nbsp;the&nbsp;main&nbsp;menu.</span></dd></dl>
+
+<dl><dt><a name="CreateController-get_file_name_to_download"><strong>get_file_name_to_download</strong></a>(self, client_id)</dt><dd><span class="code">Request&nbsp;a&nbsp;file&nbsp;path&nbsp;to&nbsp;download&nbsp;from&nbsp;the&nbsp;user.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;send.</span></dd></dl>
+
+<dl><dt><a name="CreateController-kill_client_connection"><strong>kill_client_connection</strong></a>(self, client_id)</dt><dd><span class="code">Closes&nbsp;client&nbsp;connection&nbsp;on&nbsp;exit&nbsp;command.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;to&nbsp;send&nbsp;the&nbsp;'exit'&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="CreateController-receive_data_from_clients"><strong>receive_data_from_clients</strong></a>(self, client_id)</dt><dd><span class="code">Function&nbsp;to&nbsp;remove&nbsp;the&nbsp;EOM&nbsp;delimiter&nbsp;from&nbsp;messages&nbsp;received&nbsp;from&nbsp;commands.&nbsp;<br>
+This&nbsp;is&nbsp;separate&nbsp;to&nbsp;the&nbsp;function&nbsp;used&nbsp;by&nbsp;the&nbsp;check&nbsp;alive&nbsp;messages.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;receive&nbsp;is&nbsp;associated&nbsp;with.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current_date_time_formatted&nbsp;(str):&nbsp;A&nbsp;filename&nbsp;including&nbsp;the&nbsp;date,&nbsp;cient&nbsp;IP&nbsp;address&nbsp;and&nbsp;action</span></dd></dl>
+
+<dl><dt><a name="CreateController-receive_hello_data_from_clients"><strong>receive_hello_data_from_clients</strong></a>(self, session_id)</dt><dd><span class="code">Receives&nbsp;data&nbsp;from&nbsp;a&nbsp;specific&nbsp;client.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;session_id&nbsp;(int):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;session&nbsp;for&nbsp;receiving&nbsp;data&nbsp;from&nbsp;clients.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;The&nbsp;received&nbsp;data&nbsp;from&nbsp;the&nbsp;client&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="CreateController-recv_dir_listing_from_client"><strong>recv_dir_listing_from_client</strong></a>(self, client_id)</dt><dd><span class="code">Receives&nbsp;directory&nbsp;listing&nbsp;from&nbsp;the&nbsp;client&nbsp;and&nbsp;displays&nbsp;on&nbsp;screen.&nbsp;Displays&nbsp;'Nothing&nbsp;received'<br>
+message&nbsp;if&nbsp;no&nbsp;listing&nbsp;is&nbsp;received.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;disk&nbsp;information&nbsp;is&nbsp;requested.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception:&nbsp;Used&nbsp;to&nbsp;catch&nbsp;an&nbsp;issue&nbsp;when&nbsp;a&nbsp;directory&nbsp;listing&nbsp;is&nbsp;not&nbsp;received.&nbsp;This&nbsp;happens&nbsp;on&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;occassion&nbsp;when&nbsp;a&nbsp;'hello'&nbsp;message&nbsp;is&nbsp;received&nbsp;from&nbsp;the&nbsp;alive&nbsp;check.</span></dd></dl>
+
+<dl><dt><a name="CreateController-recv_disk_information_from_client"><strong>recv_disk_information_from_client</strong></a>(self, client_id)</dt><dd><span class="code">Receives&nbsp;disk&nbsp;information&nbsp;from&nbsp;the&nbsp;client&nbsp;and&nbsp;displays&nbsp;on&nbsp;screen&nbsp;as&nbsp;well&nbsp;as&nbsp;saving&nbsp;to&nbsp;file.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;disk&nbsp;information&nbsp;is&nbsp;requested.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IOError&nbsp;exception:&nbsp;To&nbsp;catch&nbsp;an&nbsp;issue&nbsp;writing&nbsp;the&nbsp;file&nbsp;to&nbsp;disk&nbsp;and&nbsp;write&nbsp;to&nbsp;server&nbsp;log.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception:&nbsp;Used&nbsp;to&nbsp;catch&nbsp;all&nbsp;other&nbsp;cases&nbsp;and&nbsp;write&nbsp;to&nbsp;server&nbsp;log.</span></dd></dl>
+
+<dl><dt><a name="CreateController-recv_file_check_from_client"><strong>recv_file_check_from_client</strong></a>(self, client_id)</dt><dd><span class="code">Receive&nbsp;the&nbsp;check&nbsp;file&nbsp;exists&nbsp;message&nbsp;from&nbsp;the&nbsp;client.&nbsp;The&nbsp;client&nbsp;will&nbsp;send&nbsp;1&nbsp;if&nbsp;it&nbsp;exists&nbsp;or&nbsp;0&nbsp;if<br>
+it&nbsp;does&nbsp;not&nbsp;(or&nbsp;permission&nbsp;denied).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;send.</span></dd></dl>
+
+<dl><dt><a name="CreateController-recv_proccess_list_from_client"><strong>recv_proccess_list_from_client</strong></a>(self, client_id)</dt><dd><span class="code">Receives&nbsp;process&nbsp;information&nbsp;from&nbsp;the&nbsp;client&nbsp;and&nbsp;saves&nbsp;to&nbsp;file.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;process&nbsp;information&nbsp;is&nbsp;requested.</span></dd></dl>
+
+<dl><dt><a name="CreateController-recv_sysinfo_from_client"><strong>recv_sysinfo_from_client</strong></a>(self, client_id)</dt><dd><span class="code">Receives&nbsp;sysinfo&nbsp;information&nbsp;from&nbsp;the&nbsp;client&nbsp;and&nbsp;displays&nbsp;on&nbsp;screen&nbsp;as&nbsp;well&nbsp;as&nbsp;saving&nbsp;to&nbsp;file.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;which&nbsp;the&nbsp;sysinfo&nbsp;information&nbsp;is&nbsp;requested.</span></dd></dl>
+
+<dl><dt><a name="CreateController-request_file_from_client"><strong>request_file_from_client</strong></a>(self, client_id, file_path_to_download)</dt><dd><span class="code">Receive&nbsp;the&nbsp;file&nbsp;from&nbsp;the&nbsp;client&nbsp;after&nbsp;checks.&nbsp;Client&nbsp;will&nbsp;base64&nbsp;encode,&nbsp;so&nbsp;function&nbsp;will<br>
+encode&nbsp;back&nbsp;to&nbsp;bytes&nbsp;and&nbsp;base64&nbsp;decode&nbsp;to&nbsp;handle&nbsp;special&nbsp;characters&nbsp;in&nbsp;original&nbsp;binary&nbsp;encoding.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;send.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_path_to_download&nbsp;(str):&nbsp;The&nbsp;full&nbsp;file&nbsp;path&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;get&nbsp;from&nbsp;the&nbsp;client</span></dd></dl>
+
+<dl><dt><a name="CreateController-send_file_to_client"><strong>send_file_to_client</strong></a>(self, client_id, file_path_to_send)</dt><dd><span class="code">Final&nbsp;step&nbsp;in&nbsp;the&nbsp;send&nbsp;file&nbsp;chain&nbsp;to&nbsp;send&nbsp;the&nbsp;selected&nbsp;file&nbsp;to&nbsp;the&nbsp;client.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;send.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_path_to_send&nbsp;(str):&nbsp;Full&nbsp;filepath&nbsp;of&nbsp;file&nbsp;to&nbsp;send&nbsp;retrieved&nbsp;by&nbsp;the&nbsp;file_manager</span></dd></dl>
+
+<dl><dt><a name="CreateController-session_exists"><strong>session_exists</strong></a>(self, user_input)</dt><dd><span class="code">Checks&nbsp;if&nbsp;a&nbsp;session&nbsp;exists&nbsp;based&nbsp;on&nbsp;user&nbsp;input.<br>
+&nbsp;<br>
+It&nbsp;checks&nbsp;if&nbsp;the&nbsp;entered&nbsp;client&nbsp;ID&nbsp;exists&nbsp;in&nbsp;the&nbsp;range&nbsp;of&nbsp;the&nbsp;address&nbsp;list&nbsp;and&nbsp;returns&nbsp;True&nbsp;if&nbsp;it&nbsp;does.<br>
+Otherwise,&nbsp;it&nbsp;prints&nbsp;an&nbsp;error&nbsp;message.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user_input&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;to&nbsp;check&nbsp;if&nbsp;a&nbsp;session&nbsp;exists.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;session&nbsp;exists,&nbsp;otherwise&nbsp;prints&nbsp;an&nbsp;error&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="CreateController-set_session"><strong>set_session</strong></a>(self, user_input)</dt><dd><span class="code">Sets&nbsp;a&nbsp;session&nbsp;based&nbsp;on&nbsp;user&nbsp;input.<br>
+&nbsp;<br>
+It&nbsp;checks&nbsp;if&nbsp;a&nbsp;session&nbsp;exists&nbsp;based&nbsp;on&nbsp;the&nbsp;user&nbsp;input&nbsp;and&nbsp;calls&nbsp;the&nbsp;control_client&nbsp;method&nbsp;with&nbsp;the&nbsp;entered&nbsp;client&nbsp;ID.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user_input&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;to&nbsp;set&nbsp;a&nbsp;session.</span></dd></dl>
+
+<dl><dt><a name="CreateController-shutdown_controller_and_close_clients"><strong>shutdown_controller_and_close_clients</strong></a>(self)</dt><dd><span class="code">Shuts&nbsp;down&nbsp;the&nbsp;controller&nbsp;and&nbsp;closes&nbsp;all&nbsp;connected&nbsp;clients.<br>
+&nbsp;<br>
+If&nbsp;there&nbsp;are&nbsp;any&nbsp;connected&nbsp;clients,&nbsp;it&nbsp;iterates&nbsp;over&nbsp;the&nbsp;connection&nbsp;list&nbsp;and&nbsp;sends&nbsp;an&nbsp;exit&nbsp;command&nbsp;to&nbsp;each&nbsp;client,<br>
+closes&nbsp;the&nbsp;connection,&nbsp;and&nbsp;logs&nbsp;the&nbsp;closure.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Socket&nbsp;exception:&nbsp;If&nbsp;there&nbsp;is&nbsp;an&nbsp;error&nbsp;closing&nbsp;a&nbsp;client&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="CreateController-socket_for_controller"><strong>socket_for_controller</strong></a>(self, socket)</dt><dd><span class="code">Sets&nbsp;the&nbsp;provided&nbsp;socket&nbsp;as&nbsp;the&nbsp;controller's&nbsp;socket&nbsp;and&nbsp;accepts&nbsp;incoming&nbsp;connections.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;socket&nbsp;(Socket):&nbsp;The&nbsp;socket&nbsp;to&nbsp;be&nbsp;set&nbsp;as&nbsp;the&nbsp;controller's&nbsp;socket.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SSLError:&nbsp;If&nbsp;there&nbsp;is&nbsp;an&nbsp;SSL&nbsp;error.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;socket.error:&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;socket&nbsp;error.</span></dd></dl>
+
+<dl><dt><a name="CreateController-start_file_send"><strong>start_file_send</strong></a>(self, client_id)</dt><dd><span class="code">Calls&nbsp;the&nbsp;file_manager&nbsp;function&nbsp;-&nbsp;populate_send_file_folder&nbsp;which&nbsp;refreshes&nbsp;the&nbsp;files&nbsp;available&nbsp;to&nbsp;send&nbsp;from&nbsp;the&nbsp;'tool_box'&nbsp;folder.<br>
+Displays&nbsp;the&nbsp;files&nbsp;available&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client.</span></dd></dl>
+
+<dl><dt><a name="CreateController-stop_server"><strong>stop_server</strong></a>(self)</dt><dd><span class="code">Stops&nbsp;the&nbsp;server&nbsp;by&nbsp;closing&nbsp;the&nbsp;server&nbsp;socket&nbsp;and&nbsp;logs&nbsp;the&nbsp;closure.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ssl.SSLError&nbsp;exception:&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;SSL&nbsp;error&nbsp;raised&nbsp;it&nbsp;is&nbsp;subsquently&nbsp;logged&nbsp;and&nbsp;the&nbsp;program&nbsp;exits.</span></dd></dl>
+
+<dl><dt><a name="CreateController-validate_control_client_input"><strong>validate_control_client_input</strong></a>(self, cmd)</dt><dd><span class="code">Validate&nbsp;user&nbsp;input&nbsp;for&nbsp;controlling&nbsp;the&nbsp;client.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cmd&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;command&nbsp;to&nbsp;be&nbsp;validated.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;input&nbsp;command&nbsp;is&nbsp;valid&nbsp;and&nbsp;present&nbsp;in&nbsp;the&nbsp;menu&nbsp;items&nbsp;dictionary,&nbsp;False&nbsp;otherwise.</span></dd></dl>
+
+<dl><dt><a name="CreateController-validate_input"><strong>validate_input</strong></a>(self, cmd)</dt><dd><span class="code">Validates&nbsp;the&nbsp;user&nbsp;input.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cmd&nbsp;(str):&nbsp;The&nbsp;user&nbsp;input&nbsp;command.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;input&nbsp;is&nbsp;valid.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;False&nbsp;if&nbsp;the&nbsp;input&nbsp;is&nbsp;invalid.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="CreateController-build_filename"><strong>build_filename</strong></a>(client_id, action_type)</dt><dd><span class="code">Function&nbsp;used&nbsp;to&nbsp;build&nbsp;a&nbsp;filename.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;client&nbsp;for&nbsp;the&nbsp;filename.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;action_type&nbsp;(str):&nbsp;The&nbsp;command&nbsp;used&nbsp;which&nbsp;will&nbsp;be&nbsp;attached&nbsp;to&nbsp;the&nbsp;filename.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current_date_time_formatted&nbsp;(str):&nbsp;A&nbsp;filename&nbsp;including&nbsp;the&nbsp;date,&nbsp;cient&nbsp;IP&nbsp;address&nbsp;and&nbsp;action</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>display_connected_clients</strong></dt>
+<dd><span class="code">Displays&nbsp;the&nbsp;list&nbsp;of&nbsp;connected&nbsp;clients.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;-&nbsp;The&nbsp;formatted&nbsp;list&nbsp;of&nbsp;connected&nbsp;clients&nbsp;if&nbsp;there&nbsp;are&nbsp;any.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;-&nbsp;"No&nbsp;connected&nbsp;clients"&nbsp;if&nbsp;the&nbsp;list&nbsp;is&nbsp;empty.</span></dd>
+</dl>
+<dl><dt><strong>format_last_5_auth_messages</strong></dt>
+<dd><span class="code">Formats&nbsp;and&nbsp;returns&nbsp;the&nbsp;last&nbsp;5&nbsp;authentication&nbsp;messages.<br>
+&nbsp;<br>
+Returns<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;A&nbsp;string&nbsp;containing&nbsp;the&nbsp;formatted&nbsp;last&nbsp;5&nbsp;authentication&nbsp;messages&nbsp;or&nbsp;"None"&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;messages.</span></dd>
+</dl>
+<dl><dt><strong>format_list_client_display</strong></dt>
+<dd><span class="code">Formats&nbsp;and&nbsp;displays&nbsp;the&nbsp;list&nbsp;of&nbsp;connected&nbsp;clients.</span></dd>
+</dl>
+<dl><dt><strong>number_of_connected_clients</strong></dt>
+<dd><span class="code">Returns&nbsp;the&nbsp;number&nbsp;of&nbsp;connected&nbsp;clients.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int:&nbsp;The&nbsp;number&nbsp;of&nbsp;connected&nbsp;clients.</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="server_controller.html#SetupController">SetupController</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SetupController">class <strong>SetupController</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SetupController">SetupController</a>(server_logger,&nbsp;auth_logger,&nbsp;file_manager)<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="server_controller.html#SetupController">SetupController</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SetupController-__init__"><strong>__init__</strong></a>(self, server_logger, auth_logger, file_manager)</dt><dd><span class="code">Initialises&nbsp;the&nbsp;attributes&nbsp;of&nbsp;the&nbsp;<a href="#SetupController">SetupController</a>&nbsp;class.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;server_logger&nbsp;(Logger):&nbsp;An&nbsp;instance&nbsp;of&nbsp;the&nbsp;Logger&nbsp;class&nbsp;used&nbsp;for&nbsp;logging&nbsp;server-related&nbsp;information.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auth_logger&nbsp;(Logger):&nbsp;An&nbsp;instance&nbsp;of&nbsp;the&nbsp;Logger&nbsp;class&nbsp;used&nbsp;for&nbsp;logging&nbsp;authentication-related&nbsp;information.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_manager&nbsp;(FileManager):&nbsp;An&nbsp;instance&nbsp;of&nbsp;the&nbsp;FileManager&nbsp;class&nbsp;used&nbsp;for&nbsp;managing&nbsp;files.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_connection_list&nbsp;(list):&nbsp;An&nbsp;empty&nbsp;list&nbsp;to&nbsp;store&nbsp;connection&nbsp;objects.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_address_list&nbsp;(list):&nbsp;An&nbsp;empty&nbsp;list&nbsp;to&nbsp;store&nbsp;address&nbsp;objects.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_server_logger&nbsp;(Logger):&nbsp;The&nbsp;provided&nbsp;server_logger&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_auth_logger&nbsp;(Logger):&nbsp;The&nbsp;provided&nbsp;auth_logger&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_file_manager&nbsp;(FileManager):&nbsp;The&nbsp;provided&nbsp;file_manager&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_break_client_control_loop&nbsp;(bool):&nbsp;A&nbsp;flag&nbsp;to&nbsp;control&nbsp;the&nbsp;client&nbsp;control&nbsp;loop.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_menu_items&nbsp;(dict):&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;command&nbsp;descriptions&nbsp;for&nbsp;the&nbsp;main&nbsp;menu.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_control_client_menu_items&nbsp;(dict):&nbsp;A&nbsp;dictionary&nbsp;containing&nbsp;command&nbsp;descriptions&nbsp;for&nbsp;the&nbsp;control&nbsp;client&nbsp;menu.</span></dd></dl>
+
+<dl><dt><a name="SetupController-socket_for_controller"><strong>socket_for_controller</strong></a>(self)</dt><dd><span class="code">Placeholder&nbsp;method&nbsp;for&nbsp;socket_for_controller.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;a&nbsp;placeholder&nbsp;in&nbsp;the&nbsp;<a href="#SetupController">SetupController</a>&nbsp;class&nbsp;and&nbsp;does&nbsp;not&nbsp;have&nbsp;any&nbsp;implementation.<br>
+It&nbsp;must&nbsp;be&nbsp;overidden.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'socket_for_controller'})</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Back</strong> = &lt;colorama.ansi.AnsiBack object&gt;<br>
+<strong>Fore</strong> = &lt;colorama.ansi.AnsiFore object&gt;</td></tr></table>
+</body></html>
