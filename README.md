@@ -1,6 +1,6 @@
 # Hobby Project
 
-# PyProber - A simple multi-threaded tool to request information from clients
+# PyProber - A simple Python tool to request information from clients
 
 ## Features:
 - Multi-threaded server (accept multiple clients)
